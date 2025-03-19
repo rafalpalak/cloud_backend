@@ -60,6 +60,26 @@ After building, you can run the application locally using the executable JAR:
 java -jar build/libs/chat-application.jar
 ```
 
+
+## Properties
+
+The configuration properties for this application are defined in the `src/main/resources/application.properties` file. You can use this file to set up various application settings.
+
+**Overriding Properties with Environment Variables:**
+
+Spring Boot allows you to override any property defined in the configuration files by using environment variables. This feature is particularly useful in production and containerized environments, such as Docker. When you set an environment variable, its name should be the uppercase version of the property key with dots (`.`) replaced by underscores (`_`).
+
+For example, to override the datasource URL property:
+
+- Property in `application.properties`:
+  ```properties
+  server.port=${SERVER_PORT}
+  ```
+- Corresponding environment variable:
+  ```bash
+  export SERVER_PORT=8080
+  ```
+
 ## API Endpoints
 
 ### Retrieve All Messages
